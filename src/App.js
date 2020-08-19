@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Header from './Components/Header';
 import Main from './Components/Main';
+import Oils from './Components/Oils';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+  Link,
+} from "react-router-dom";
 
-function App() {
+
+
+const App = () => {
+
+  const [url, setUrl] = useState('');
+
   return (
-    <div className="App">
-      <Main />
-    </div>
+    
+    <>
+     <Switch>
+        <Route path="/oils">
+          <Oils  />
+        </Route>
+     
+        <Route exact path="/">
+          <Header />
+          <Main />
+        </Route>
+        </Switch>
+    </>
   );
 }
 
-export default App;
+
+function Wrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+}
+export default Wrapper;
+{/* export default App; */}
