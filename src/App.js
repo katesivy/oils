@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Oils from './Components/Oils';
+import Condition from './Components/Conditions';
+import Navbar from './Components/Navbar';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -18,18 +20,25 @@ const App = () => {
   const [url, setUrl] = useState('');
 
   return (
-    
+
     <>
-     <Switch>
+      <Switch>
         <Route path="/oils">
-          <Oils  />
+          <Navbar />
+          <Oils />
         </Route>
-     
+
+        <Route path="/condition">
+          <Navbar />
+          <Condition />
+        </Route>
+
         <Route exact path="/">
+          <Navbar />
           <Header />
           <Main />
         </Route>
-        </Switch>
+      </Switch>
     </>
   );
 }
@@ -43,4 +52,4 @@ function Wrapper() {
   )
 }
 export default Wrapper;
-{/* export default App; */}
+{/* export default App; */ }
